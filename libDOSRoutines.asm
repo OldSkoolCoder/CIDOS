@@ -15,14 +15,23 @@ OpenDiskCommandChannel
     ldx #<STARTNM       ; Load LoByte Address of Init String
     ldy #>STARTNM       ; Load HiByte Address of Init String
     jsr krljmp_SETNAM$  ; Set Message Parameters for Channel
-    jsr krljmp_OPEN$    ; Open File Number Coimmand Channel
-TODO Add Error Trapping Code.
+    jsr krljmp_OPEN$    ; Open File Number Command Channel
+    bcs @ErrorReturned
     pla                 ; Get X Reg
     tax
     pla                 ; Get Y Reg
     tay
     pla                 ; Get Acc.
     rts
+
+@ErrorReturned
+    tax                 ; Move Error Code To X
+    pla                 ; Get X
+    pla                 ; Get Y
+    pla                 ; Get Acc
+    pla
+    pla                 ; Pull JSR Pointers
+    jmp ErrorHandler
 
 ;*******************************************************************************
 ;* Close Disk Command Channel Routine                                          *
@@ -46,11 +55,11 @@ DOS
     sta DosCommandBuffer,y      ; Store it at end Of DOS Instruction Line
 
 ;*************** Rem this line out once debugging is over **********************
-;    jsr ShowDOSCommand      ; Debug Information about command been sent
+    jsr ShowDOSCommand      ; Debug Information about command been sent
 
     jsr AreYouSurePrompt    ; Confirm Operation is Required?
     ldx #15                 ; Load Logial File Number
-    jsr krljmp_CHROUT$      ; Sets Output Device
+    jsr krljmp_CHKOUT$      ; Sets Output Device
     lda #<DosCommandBuffer  ; Load LoByte DOS Buffer Address
     ldy #>DosCommandBuffer  ; Load HiByte DOS Buffer Address
     jsr bas_PrintString$    ; Print String @ Acc, Y
@@ -89,6 +98,8 @@ AreYouSurePrompt
     rts                     ; Yes, Continue with operation
 
 AreYouSurePrompt1
+    jsr krljmp_CLRCHN$      ; Clear Channel
+    jsr CloseDiskCommandChannel ; Closes the Command Channel
     pla                     ; Pull HiByte Return Vector
     pla                     ; Pull LoByte Return Vector
     jmp READY               ; Goto Ready Process
@@ -97,3 +108,4 @@ PROMPT_TEXT
     TEXT "are you sure ?n"
     BYTE CHR_CursorLeft   
     brk 
+

@@ -8,6 +8,8 @@
 ;*                                                                             *
 ;* Change History                                                              *
 ;* 5th Feb 2018  : Created new project for use in the new CIDOS Video Series   *
+;* 11th Feb 2018 : Added Error handling routine, and added the STATUS and the  *
+;*                 Initialisation Commands                                     *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -47,6 +49,8 @@ DiskCommandChannelNumber = 15
 ;* Code                                                                        *
 ;*******************************************************************************
 
+incasm "incInitialiseCommand.asm"
+incasm "incStatusCommand.asm"
 
 ;*******************************************************************************
 ;* Show Ready Prompt                                                           *
@@ -57,6 +61,7 @@ READY
     jmp bas_ReadyPrompt$       ; Ready Prompt
 
 incasm "libDOSRoutines.asm"
+incasm "libErrorHandler.asm"
 
 ;*******************************************************************************
 ;* Storage Locations                                                           *

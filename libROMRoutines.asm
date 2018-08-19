@@ -1,5 +1,6 @@
 ifdef TGT_C64
 ; BASIC Rom starts at $A000
+bas_ROMError$       = $A437
 bas_CustomError$    = $A447
 bas_DecimalPrint$   = $BDCD
 bas_PrintString$    = $AB1E
@@ -9,6 +10,7 @@ endif
          
 ifdef TGT_VIC20_8K
 ; BASIC Rom Starts at $C000
+bas_ROMError$       = $A437
 bas_CustomError$    = $C447
 bas_DecimalPrint$   = $DDCD
 bas_PrintString$    = $CB1E
@@ -56,4 +58,12 @@ krljmp_SCREEN$      = $FFED
 krljmp_PLOT$        = $FFF0
 krljmp_BASE$        = $FFF3
 
+jmpvec_Error        = $0300
+jmpvec_Main         = $0302
+jmpvec_Crunch       = $0304
+jmpvec_List         = $0306
+jmpvec_Run          = $0308
 
+jmpvec_irq          = $0314
+jmpvec_brk          = $0316
+jmpvec_nmi          = $0318
