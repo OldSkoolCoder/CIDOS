@@ -10,6 +10,7 @@
 ;* 5th Feb 2018  : Created new project for use in the new CIDOS Video Series   *
 ;* 11th Feb 2018 : Added Error handling routine, and added the STATUS and the  *
 ;*                 Initialisation Commands                                     *
+;* 16th Feb 2018 : Added the Collect, Rename and Copy Commands                 *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -36,6 +37,8 @@ incasm "Character_ASCII_Const.asm"
 
 CHRGET      = $0073
 CHRGOT      = $0079
+FREERAM     = $02A7
+FREERAMLAST = $02FF
 
 DosCommandBuffer    = $033C
 
@@ -49,6 +52,10 @@ DiskCommandChannelNumber = 15
 ;* Code                                                                        *
 ;*******************************************************************************
 
+
+incasm "incCopyCommand.asm"
+incasm "incRenameCommand.asm"
+incasm "incCollectCommand.asm"
 incasm "incInitialiseCommand.asm"
 incasm "incStatusCommand.asm"
 

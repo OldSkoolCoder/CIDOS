@@ -19,14 +19,13 @@ ST_ChannelAlreadyOpen
 @StartOfLine
     jsr krljmp_CHRIN$       ; Get Character From Input Channel
     cmp #CHR_Return         ; Is it carraige return?
-    beq @EndOfLine        ; Yes, Goto End Of Line
+    beq @EndOfLine          ; Yes, Goto End Of Line
 
     jsr krljmp_CHROUT$      ; No, Print that Character
-    jmp @StartOfLine      ; Process Next Character
+    jmp @StartOfLine        ; Process Next Character
 
 @EndOfLine
-    lda #CHR_Return         ; load Carraige Return
-    jsr krljmp_CHROUT$      ; Print Character
+    jsr krljmp_CHROUT$      ; Print Character (Carraige Return)
     jsr krljmp_CLRCHN$      ; Clear Channel
     jsr CloseDiskCommandChannel ; Closes the Disk Command Channel
     jmp ready               ; Goto Ready Process

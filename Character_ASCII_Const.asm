@@ -30,4 +30,7 @@ CHR_CursorLeft              = 157
 CHR_Yellow                  = 158
 CHR_Cyan                    = 159
 CHR_ShiftSpace              = 160
+CHR_Quote                   = 34
+CHR_Equals                  = 61
+CHR_Colon                   = 58
 

@@ -58,7 +58,7 @@ DOS
     jsr ShowDOSCommand      ; Debug Information about command been sent
 
     jsr AreYouSurePrompt    ; Confirm Operation is Required?
-    ldx #15                 ; Load Logial File Number
+    ldx #DiskCommandChannelNumber  ; Load Logial File Number
     jsr krljmp_CHKOUT$      ; Sets Output Device
     lda #<DosCommandBuffer  ; Load LoByte DOS Buffer Address
     ldy #>DosCommandBuffer  ; Load HiByte DOS Buffer Address
