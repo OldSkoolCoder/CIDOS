@@ -38,7 +38,7 @@ ErrorHandler
     WORD ERRORCODE_35        ; Error Code 35
 
 ERRORCODE_30
-    TEXT "Error Code 30"
+    TEXT "invalid device number"
     BRK
 
 ERRORCODE_31

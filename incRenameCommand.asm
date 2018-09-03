@@ -16,11 +16,11 @@ ProcessFromToCommand
     sta DosCommandBuffer    ; Store in DOS Buffer
     lda #CHR_Colon          ; DOS Command seperator ':'
     sta DosCommandBuffer+1  ; Store in character character of Buffer
-    ;lda #255                ; Load 255 in Acc
-    ;sta 129                 ; Store it in 129
     ldy #0                  ; Init Y
 
+    CHRGETSpaceCheck 255
     GetFilenameFromCommandLine FREERAM
+    CHRGETSpaceCheck CHR_Space
 
     sty FREERAMLAST         ; Temp Store Dos Buffer Index Away
 
@@ -29,7 +29,9 @@ ProcessFromToCommand
     jsr CHRGET              ; Get Next Character from command line
     ldy #2                  ; Start Index Y @ 2
 
+    CHRGETSpaceCheck 255
     GetFilenameFromCommandLine DosCommandBuffer
+    CHRGETSpaceCheck CHR_Space
 
     lda #CHR_Equals         ; Load '='
     sta DosCommandBuffer,y  ; store in DOS Buffer
@@ -43,5 +45,6 @@ ProcessFromToCommand
     inx                     ; Increase Filename1 Index
     cpx FREERAMLAST         ; Compare X with length of Filename1
     bne @GetSecondFileName  ; Not got there yet, go back for next character
+
     jmp DOS                 ; Perform DOS Command
 

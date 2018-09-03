@@ -11,6 +11,7 @@
 ;* 11th Feb 2018 : Added Error handling routine, and added the STATUS and the  *
 ;*                 Initialisation Commands                                     *
 ;* 16th Feb 2018 : Added the Collect, Rename and Copy Commands                 *
+;* 20th Feb 2018 : Added the Scratch, Header and Device Commands               *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -29,7 +30,7 @@ endif
 incasm "libErrorCodes.asm"
 incasm "libROMRoutines.asm"
 incasm "libDOSMacros.asm"
-incasm "Character_ASCII_Const.asm"
+incasm "libCharacterASCIIConst.asm"
 
 ;*******************************************************************************
 ;* Variables                                                                   *
@@ -37,8 +38,12 @@ incasm "Character_ASCII_Const.asm"
 
 CHRGET      = $0073
 CHRGOT      = $0079
+CHRGETSPACE = $81
 FREERAM     = $02A7
 FREERAMLAST = $02FF
+
+STRTLO  =247
+STRTHI  =248
 
 DosCommandBuffer    = $033C
 
@@ -52,7 +57,9 @@ DiskCommandChannelNumber = 15
 ;* Code                                                                        *
 ;*******************************************************************************
 
-
+incasm "incDeviceCommand.asm"
+incasm "incHeaderCommand.asm"
+incasm "incScratchCommand.asm"
 incasm "incCopyCommand.asm"
 incasm "incRenameCommand.asm"
 incasm "incCollectCommand.asm"
@@ -63,12 +70,12 @@ incasm "incStatusCommand.asm"
 ;* Show Ready Prompt                                                           *
 ;*******************************************************************************
 READY
-    lda #32
-    sta 129
+    CHRGETSpaceCheck CHR_Space
     jmp bas_ReadyPrompt$       ; Ready Prompt
 
 incasm "libDOSRoutines.asm"
 incasm "libErrorHandler.asm"
+incasm "libBASICRoutines.asm"
 
 ;*******************************************************************************
 ;* Storage Locations                                                           *

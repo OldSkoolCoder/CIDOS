@@ -5,6 +5,7 @@ bas_CustomError$    = $A447
 bas_DecimalPrint$   = $BDCD
 bas_PrintString$    = $AB1E
 bas_ReadyPrompt$    = $A474
+bas_LineGet$        = $A96B
 endif
 
          
@@ -15,6 +16,7 @@ bas_CustomError$    = $C447
 bas_DecimalPrint$   = $DDCD
 bas_PrintString$    = $CB1E
 bas_ReadyPrompt$    = $C474
+bas_LineGet$        = $C96B
 endif
 
 ; Kernel Jump Vectors
