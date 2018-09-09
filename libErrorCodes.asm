@@ -31,6 +31,9 @@ err_CantContinue$           = 26
 err_UndefdFunction$         = 27
 err_Verify$                 = 28
 err_Load$                   = 29
+err_Break$                  = 30
 
 ; My Custom Error Codes
-err_InvalidDeviceNumber     = 30
+err_InvalidDeviceNumber$    = 31
+err_SaveVerifyMismatch$     = 32
+err_DeviceNotReady$         = 33

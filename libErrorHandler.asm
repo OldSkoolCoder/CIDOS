@@ -11,10 +11,10 @@ ErrorHandlerHi  = $23
 ErrorHandler
     txa
     pha                     ; Store Away Error Code
-    cmp #30
+    cmp #31
     bcc @ROMError           ; less than 30
     sec
-    sbc #30                 ; Subtract Our Error Code start
+    sbc #31                 ; Subtract Our Error Code start
     asl                     ; Multiply By Two
     tax
     lda @ErrorCodes,x
@@ -30,36 +30,30 @@ ErrorHandler
     jmp bas_ROMError$
 
 @ErrorCodes
-    WORD ERRORCODE_30        ; Error Code 30
     WORD ERRORCODE_31        ; Error Code 31
     WORD ERRORCODE_32        ; Error Code 32
     WORD ERRORCODE_33        ; Error Code 33
     WORD ERRORCODE_34        ; Error Code 34
     WORD ERRORCODE_35        ; Error Code 35
-
-ERRORCODE_30
-    TEXT "invalid device number"
-    BRK
+    WORD ERRORCODE_36        ; Error Code 36
 
 ERRORCODE_31
-    TEXT "Error Code 31"
-    BRK
+    TEXT "invalid device numbeR"
 
 ERRORCODE_32
-    TEXT "Error Code 32"
-    BRK
+    TEXT "chain verifying erroR"
 
 ERRORCODE_33
-    TEXT "Error Code 33"
-    BRK
+    TEXT "device not readY"
 
 ERRORCODE_34
-    TEXT "Error Code 34"
-    BRK
+    TEXT "33 code erroR"
 
 ERRORCODE_35
-    TEXT "Error Code 35"
-    BRK
+    TEXT "34 code erroR"
+
+ERRORCODE_36
+    TEXT "35 code erroR"
 
 ;*******************************************************************************
 ;* Show Syntax Error                                                           *

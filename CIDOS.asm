@@ -12,6 +12,7 @@
 ;*                 Initialisation Commands                                     *
 ;* 16th Feb 2018 : Added the Collect, Rename and Copy Commands                 *
 ;* 20th Feb 2018 : Added the Scratch, Header and Device Commands               *
+;* 24th Feb 2018 : Added the Catalogue and Chain Commands                      *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -57,6 +58,8 @@ DiskCommandChannelNumber = 15
 ;* Code                                                                        *
 ;*******************************************************************************
 
+incasm "incChainCommand.asm"
+incasm "incCatalogueCommand.asm"
 incasm "incDeviceCommand.asm"
 incasm "incHeaderCommand.asm"
 incasm "incScratchCommand.asm"

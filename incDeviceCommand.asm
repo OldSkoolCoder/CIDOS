@@ -33,7 +33,7 @@ DEV_SyntaxError
     jmp SYNTAX_ERROR            ; Send Syntax Error
 
 DEV_InvalidDeviceNumber
-    ldx #err_InvalidDeviceNumber
+    ldx #err_InvalidDeviceNumber$
     jmp ErrorHandler
 
 DEVICE_TEXT
