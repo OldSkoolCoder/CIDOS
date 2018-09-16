@@ -13,10 +13,10 @@ DEVICE
     ldx STRTHI                          ; Get Back Device Number
     cpx #8
     bcc DEV_InvalidDeviceNumber         ; Device < 8
-    cpx #13
-    bcs DEV_InvalidDeviceNumber         ; Device > 12
+    cpx #12
+    bcs DEV_InvalidDeviceNumber         ; Device > 11
     stx DEVICE_NUMBER                   ; Permanetly store device number
-    jsr OpenDiskCommandChannel          ; Open Command Channel on new device
+    ;jsr OpenDiskCommandChannel          ; Open Command Channel on new device
 
 DEV_PrintCurrentDeviceNumber
     lda #<DEVICE_TEXT           ; Load LoByte value of Text

@@ -6,6 +6,8 @@ bas_DecimalPrint$   = $BDCD
 bas_PrintString$    = $AB1E
 bas_ReadyPrompt$    = $A474
 bas_LineGet$        = $A96B
+bas_NEWCommand$     = $A642
+bas_FindLine$       = $A613
 endif
 
          
@@ -17,6 +19,8 @@ bas_DecimalPrint$   = $DDCD
 bas_PrintString$    = $CB1E
 bas_ReadyPrompt$    = $C474
 bas_LineGet$        = $C96B
+bas_NEWCommand$     = $C642
+bas_FindLine$       = $C613
 endif
 
 ; Kernel Jump Vectors

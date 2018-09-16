@@ -13,6 +13,7 @@
 ;* 16th Feb 2018 : Added the Collect, Rename and Copy Commands                 *
 ;* 20th Feb 2018 : Added the Scratch, Header and Device Commands               *
 ;* 24th Feb 2018 : Added the Catalogue and Chain Commands                      *
+;* 26th Feb 2018 : Added Cartridge Initialisation and BASIC Tokaniser Routine  *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -21,13 +22,17 @@
 
 ifdef TGT_C64
     *= $8000
+CARTSTART = $8000
 endif
 
          
 ifdef TGT_VIC20_8K
     *= $A000
+CARTSTART = $A000
 endif
 
+incasm "incCartridgeInitate.asm"
+incasm "incBASICTokaniser.asm"
 incasm "libErrorCodes.asm"
 incasm "libROMRoutines.asm"
 incasm "libDOSMacros.asm"
@@ -85,10 +90,10 @@ incasm "libBASICRoutines.asm"
 ;*******************************************************************************
 DEVICE_NUMBER
     BYTE 08
-;PREVIOUS_BASIC_JUMP_VECTORS
-;    WORD 0
-;PREVIOUS_ERROR_JUMP_VECTORS
-;    WORD 0
+PREVIOUS_BASIC_JUMP_VECTORS
+    WORD 0
+PREVIOUS_ERROR_JUMP_VECTORS
+    WORD 0
 FILENAME
     TEXT "0000000000000000000"
     BRK
