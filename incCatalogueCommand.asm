@@ -14,6 +14,9 @@ CATALOG
     jsr krljmp_SETNAM$  ; Set Parameter for filename
     jsr krljmp_OPEN$    ; Perform Open File Command
     bcc @NOOpenError
+    pha
+    jsr CAT_CloseFileNumber  ; Close File Number
+    pla
     tax
     jmp ErrorHandler    ; Error Detected, Jump to Handler
 
@@ -21,6 +24,9 @@ CATALOG
     ldx #8              ; Set Logical File Number
     jsr krljmp_CHKIN$   ; Set Input Device
     bcc @NoInputError
+    pha
+    jsr CAT_CloseFileNumber  ; Close File Number
+    pla
     tax
     jmp ErrorHandler    ; Error Detected, Jump to Handler
 

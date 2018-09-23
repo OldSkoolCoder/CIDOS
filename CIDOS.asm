@@ -14,6 +14,8 @@
 ;* 20th Feb 2018 : Added the Scratch, Header and Device Commands               *
 ;* 24th Feb 2018 : Added the Catalogue and Chain Commands                      *
 ;* 26th Feb 2018 : Added Cartridge Initialisation and BASIC Tokaniser Routine  *
+;* 1st Mar 2018  : Added Commands Mount, Dismount, RootDirectory,              *
+;*                 ChangeDirectory, MakeDirectory and RemoveDirectory          *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -63,6 +65,12 @@ DiskCommandChannelNumber = 15
 ;* Code                                                                        *
 ;*******************************************************************************
 
+incasm "incRemoveDirectoryCommand.asm"
+incasm "incMakeDirectoryCommand.asm"
+incasm "incChangeDirectoryCommand.asm"
+incasm "incRootDirectoryCommand.asm"
+incasm "incDismountCommand.asm"
+incasm "incMountCommand.asm"
 incasm "incChainCommand.asm"
 incasm "incCatalogueCommand.asm"
 incasm "incDeviceCommand.asm"

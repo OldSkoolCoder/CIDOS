@@ -89,6 +89,12 @@ Command_LIST
     TEXT "headeR"
     TEXT "devicE"
     TEXT "chaiN"
+    TEXT "mounT"
+    TEXT "dismounT"
+    TEXT "rootdiR"
+    TEXT "changediR"
+    TEXT "makediR"
+    TEXT "removediR"
     brk 
 
 ;*******************************************************************************
@@ -105,4 +111,10 @@ Command_ADDR
     WORD HEADER-1
     WORD DEVICE-1
     WORD CHAIN-1
+    WORD MOUNT-1
+    WORD DISMOUNT-1
+    WORD ROOTDIR-1
+    WORD CHANGEDIR-1
+    WORD MAKEDIR-1
+    WORD REMOVEDIR-1
 

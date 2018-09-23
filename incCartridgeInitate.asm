@@ -79,7 +79,7 @@ NMI_TEXT
     BYTE CHR_ClearScreen
     BYTE CHR_CursorDown
     ;COLS"1234567890123456789012345678901234567890"
-    TEXT " the intergrated disc operating system  "
+    TEXT "  the integrated disc operating system  "
     BYTE CHR_CursorDown
     TEXT "cidos v1.010a (c) feb 2018 oldskoolcoder"
     brk 
@@ -90,7 +90,7 @@ NMI_TEXT
     BYTE CHR_ClearScreen
     BYTE CHR_CursorDown
     ;COLS"1234567890123456789012"
-    TEXT "the c= intergrated dos"
+    TEXT "the c= integrated dos "
     BYTE CHR_CursorDown
     TEXT "     cidos v1.010a"
     BYTE CHR_Return

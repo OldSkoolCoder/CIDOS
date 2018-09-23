@@ -78,9 +78,13 @@ DOS_ClearBuffer
 ;* Show DOS Command before Committing                                          *
 ;*******************************************************************************
 ShowDOSCommand
+    lda #CHR_Quote
+    jsr krljmp_CHROUT$
     lda #<DosCommandBuffer  ; Load LoByte DOS Buffer Address
     ldy #>DosCommandBuffer  ; Load HiByte DOS Buffer Address
     jsr bas_PrintString$    ; Print String @ Acc, Y
+    lda #CHR_Quote
+    jsr krljmp_CHROUT$
     rts
 
 ;*******************************************************************************
