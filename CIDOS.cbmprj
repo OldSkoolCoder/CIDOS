@@ -62,6 +62,12 @@
         <FileName>incChangeDirectoryCommand.asm</FileName>
         <FileName>incMakeDirectoryCommand.asm</FileName>
         <FileName>incRemoveDirectoryCommand.asm</FileName>
+        <FileName>incLockFileCommand.asm</FileName>
+        <FileName>incUnlockFileCommand.asm</FileName>
+        <FileName>libLockUnlockRoutines.asm</FileName>
+        <FileName>incKillCommand.asm</FileName>
+        <FileName>incHelpCommand.asm</FileName>
+        <FileName>incAboutCommand.asm</FileName>
     </BuildList>
     <DetermineBuildOrder>1</DetermineBuildOrder>
     <PaddingByte>0</PaddingByte>
@@ -76,6 +82,17 @@
             <Breakpoints />
             <Bookmarks />
             <Topmost>True</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>incAboutCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
             <FileOpen>True</FileOpen>
         </SourceFile>
         <SourceFile>
@@ -189,7 +206,40 @@
             <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
+            <Name>incHelpCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
             <Name>incInitialiseCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>incKillCommand.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>incLockFileCommand.asm</Name>
             <PrgName />
             <FileType>2</FileType>
             <IncludeInBuild>True</IncludeInBuild>
@@ -277,7 +327,7 @@
             <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
-            <Name>libBASICRoutines.asm</Name>
+            <Name>incUnlockFileCommand.asm</Name>
             <PrgName />
             <FileType>2</FileType>
             <IncludeInBuild>True</IncludeInBuild>
@@ -286,6 +336,17 @@
             <Bookmarks />
             <Topmost>False</Topmost>
             <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>libBASICRoutines.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>True</FileOpen>
         </SourceFile>
         <SourceFile>
             <Name>libCharacterASCIIConst.asm</Name>
@@ -318,7 +379,7 @@
             <Breakpoints />
             <Bookmarks />
             <Topmost>False</Topmost>
-            <FileOpen>True</FileOpen>
+            <FileOpen>False</FileOpen>
         </SourceFile>
         <SourceFile>
             <Name>libErrorCodes.asm</Name>
@@ -333,6 +394,17 @@
         </SourceFile>
         <SourceFile>
             <Name>libErrorHandler.asm</Name>
+            <PrgName />
+            <FileType>2</FileType>
+            <IncludeInBuild>True</IncludeInBuild>
+            <Regions />
+            <Breakpoints />
+            <Bookmarks />
+            <Topmost>False</Topmost>
+            <FileOpen>False</FileOpen>
+        </SourceFile>
+        <SourceFile>
+            <Name>libLockUnlockRoutines.asm</Name>
             <PrgName />
             <FileType>2</FileType>
             <IncludeInBuild>True</IncludeInBuild>

@@ -67,3 +67,31 @@ defm GetTOFromCommandLine
 
 @Found_O
 endm
+
+defm PrintUCommand
+;*******************************************************************************
+;* Parameter List                                                              *
+;*      Input /1 = Track Number                                                *
+;*      Input /2 = Sector Number                                               *
+;*      Input /3 = Command Text                                                *
+;*******************************************************************************
+    stx /1
+    sty /2
+    ldx #1                  ; Load Logial File Number
+    jsr krljmp_CHKOUT$      ; Sets Output Device
+    lda #</3                ; Load LoByte DOS Buffer Address
+    ldy #>/3                ; Load HiByte DOS Buffer Address
+    jsr bas_PrintString$    ; Print String @ Acc, Y
+    lda #0
+    ldx /1
+    jsr bas_DecimalPrint$
+    lda #","
+    jsr krljmp_CHROUT$
+    lda #0
+    ldx /2
+    jsr bas_DecimalPrint$
+    jsr krljmp_CLRCHN$      ; Clear Channel
+    rts
+    endm
+;*******************************************************************************
+

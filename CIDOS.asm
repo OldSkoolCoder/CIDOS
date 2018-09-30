@@ -16,6 +16,8 @@
 ;* 26th Feb 2018 : Added Cartridge Initialisation and BASIC Tokaniser Routine  *
 ;* 1st Mar 2018  : Added Commands Mount, Dismount, RootDirectory,              *
 ;*                 ChangeDirectory, MakeDirectory and RemoveDirectory          *
+;* 4th Mar 2018  : Added LockFile and UnlockFile Commands                      *
+;* 10th Mar 2018 : Added Kill, Help and Abount Commands                        *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -65,6 +67,11 @@ DiskCommandChannelNumber = 15
 ;* Code                                                                        *
 ;*******************************************************************************
 
+incasm "incAboutCommand.asm"
+incasm "incHelpCommand.asm"
+incasm "incKillCommand.asm"
+incasm "incLockFileCommand.asm"
+incasm "incUnlockFileCommand.asm"
 incasm "incRemoveDirectoryCommand.asm"
 incasm "incMakeDirectoryCommand.asm"
 incasm "incChangeDirectoryCommand.asm"
@@ -92,6 +99,7 @@ READY
 incasm "libDOSRoutines.asm"
 incasm "libErrorHandler.asm"
 incasm "libBASICRoutines.asm"
+incasm "libLockUnlockRoutines.asm"
 
 ;*******************************************************************************
 ;* Storage Locations                                                           *
@@ -105,13 +113,23 @@ PREVIOUS_ERROR_JUMP_VECTORS
 FILENAME
     TEXT "0000000000000000000"
     BRK
-;LOCK_UNLOCK_COMMAND
-;    BYTE " "                ; L = Lock, U = Unlock
-;CURRENTTRACKNO
-;    BYTE 0
-;CURRENTSECTORNO
-;    BYTE 0
-;NEXTTRACKNO
-;    BYTE 0
-;NEXTSECTORNO
-;    BYTE 0
+LOCK_UNLOCK_COMMAND
+    BYTE " "                ; L = Lock, U = Unlock
+CURRENTTRACKNO
+    BYTE 0
+CURRENTSECTORNO
+    BYTE 0
+NEXTTRACKNO
+    BYTE 0
+NEXTSECTORNO
+    BYTE 0
+LOCKNM
+    BYTE "#"
+FilenameInSector
+    BYTE 0
+FileProtectionStatus
+    BYTE 0
+FilenameStringIndex
+    BYTE 0
+FoundFileName
+    BYTE 0

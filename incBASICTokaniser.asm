@@ -95,6 +95,11 @@ Command_LIST
     TEXT "changediR"
     TEXT "makediR"
     TEXT "removediR"
+    TEXT "locK"
+    TEXT "unlocK"
+    TEXT "kilL"
+    TEXT "helP"
+    TEXT "abouT"
     brk 
 
 ;*******************************************************************************
@@ -117,4 +122,8 @@ Command_ADDR
     WORD CHANGEDIR-1
     WORD MAKEDIR-1
     WORD REMOVEDIR-1
-
+    WORD LOCKFILE-1
+    WORD UNLOCKFILE-1
+    WORD KILL-1
+    WORD HELP-1
+    WORD ABOUT-1
