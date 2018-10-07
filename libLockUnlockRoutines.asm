@@ -202,10 +202,6 @@ PrintU1Command
 
 U1CommentTXT
     TEXT "u1:10,0,",0
-U1TrackNo
-    BYTE 0
-U1SectorNo
-    BYTE 0
     
 ;*******************************************************************************
 ;* Print U2 Command to Channel 1                                               *
@@ -217,10 +213,6 @@ PrintU2Command
 
 U2CommentTXT
     TEXT "u2:10,0,",0
-U2TrackNo
-    BYTE 0
-U2SectorNo
-    BYTE 0
     
 ;*******************************************************************************
 ;* Print B-P Command to Channel 1                                              *
@@ -244,8 +236,6 @@ PrintBPCommand
 
 BPCommentTXT
     TEXT "b-p:10,",0
-BPPosition
-    BYTE 0
     
 ;*******************************************************************************
 ;* CloseAllFileNumbersForLockUnlockSystem                                      *

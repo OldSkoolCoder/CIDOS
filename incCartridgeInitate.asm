@@ -50,6 +50,7 @@ endif
     ldy #>nmi_text          ; Load HiByte value of Text
     jsr bas_PrintString$    ; String Out Routine
     jsr START               ; GoSub my Start Routine
+    jsr INIT_ME             ; Initialise all my variables
     jmp NMI_EXIT            ; Jump To NMI_Exit
 
 NMI
@@ -97,6 +98,25 @@ NMI_TEXT
     TEXT "(c) 2018 oldskoolcoder"
     brk 
 endif
+
+;*******************************************************************************
+;* Initialise all my variables routine                                         *
+;*******************************************************************************
+INIT_ME
+    lda #0
+    ldy #0
+@INIT_ME_LOOPER
+    sta $02A7,y         ; Clear out my Memory storage
+    iny
+    cpy #60
+    bne @INIT_ME_LOOPER
+    lda #8              ; Default Drive Number to 8
+    sta DEVICE_NUMBER
+    lda #" "
+    sta LOCK_UNLOCK_COMMAND
+    lda #"#"
+    sta LOCKNM
+    rts
 
 ;*******************************************************************************
 ;* Start Routine                                                               *

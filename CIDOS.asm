@@ -17,7 +17,8 @@
 ;* 1st Mar 2018  : Added Commands Mount, Dismount, RootDirectory,              *
 ;*                 ChangeDirectory, MakeDirectory and RemoveDirectory          *
 ;* 4th Mar 2018  : Added LockFile and UnlockFile Commands                      *
-;* 10th Mar 2018 : Added Kill, Help and Abount Commands                        *
+;* 10th Mar 2018 : Added Kill, Help and About Commands                         *
+;* 22nd Mar 2018 : Add Code to allow conversion to crt Cartridge format        *
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -104,32 +105,44 @@ incasm "libLockUnlockRoutines.asm"
 ;*******************************************************************************
 ;* Storage Locations                                                           *
 ;*******************************************************************************
-DEVICE_NUMBER
-    BYTE 08
-PREVIOUS_BASIC_JUMP_VECTORS
-    WORD 0
-PREVIOUS_ERROR_JUMP_VECTORS
-    WORD 0
-FILENAME
-    TEXT "0000000000000000000"
+DEVICE_NUMBER               = $02A8
+    ;BYTE 08
+PREVIOUS_BASIC_JUMP_VECTORS = $02A9
+    ;WORD 0
+PREVIOUS_ERROR_JUMP_VECTORS = $02AB
+    ;WORD 0
+FILENAME                    = $02AD
+    ;TEXT "0000000000000000000"
+    ;BRK
+LOCK_UNLOCK_COMMAND         = $02C1
+    ;BYTE " "                ; L = Lock, U = Unlock
+CURRENTTRACKNO              = $02C2
+    ;BYTE 0
+CURRENTSECTORNO             = $02C3
+    ;BYTE 0
+NEXTTRACKNO                 = $02C4
+    ;BYTE 0
+NEXTSECTORNO                = $02C5
+    ;BYTE 0
+LOCKNM                      = $02C6
+    ;BYTE "#"
+FilenameInSector            = $02C7
+    ;BYTE 0
+FileProtectionStatus        = $02C8
+    ;BYTE 0
+FilenameStringIndex         = $02C9
+    ;BYTE 0
+FoundFileName               = $02CA
+    ;BYTE 0
+BPPosition                  = $02CB
+    ;BYTE 0
+U2TrackNo                   = $02CC
+    ;BYTE 0
+U2SectorNo                  = $02CD
+    ;BYTE 0
+U1TrackNo                   = $02CE
+    ;BYTE 0
+U1SectorNo                  = $02CF
+    ;BYTE 0
+*=$9FFF
     BRK
-LOCK_UNLOCK_COMMAND
-    BYTE " "                ; L = Lock, U = Unlock
-CURRENTTRACKNO
-    BYTE 0
-CURRENTSECTORNO
-    BYTE 0
-NEXTTRACKNO
-    BYTE 0
-NEXTSECTORNO
-    BYTE 0
-LOCKNM
-    BYTE "#"
-FilenameInSector
-    BYTE 0
-FileProtectionStatus
-    BYTE 0
-FilenameStringIndex
-    BYTE 0
-FoundFileName
-    BYTE 0
