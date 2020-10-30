@@ -49,8 +49,8 @@ endif
     lda #<nmi_text+1        ; Load LoByte value of Text
     ldy #>nmi_text          ; Load HiByte value of Text
     jsr bas_PrintString$    ; String Out Routine
-    jsr START               ; GoSub my Start Routine
     jsr INIT_ME             ; Initialise all my variables
+    jsr START               ; GoSub my Start Routine
     jmp NMI_EXIT            ; Jump To NMI_Exit
 
 NMI
